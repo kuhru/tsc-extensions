@@ -13,6 +13,17 @@
     "lint": "tsc",
     "ci": "pnpm run lint && pnpm run test && pnpm run build"
   },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": {
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "default": "./dist/index.js"
+      }
+    }
+  },
   "keywords": [],
   "author": "kuhru",
   "license": "ISC",
