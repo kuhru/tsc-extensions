@@ -34,3 +34,5 @@ declare global {
         [K in T]?: S;
     };
 }
+
+export {}

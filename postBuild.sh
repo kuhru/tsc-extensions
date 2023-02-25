@@ -1,0 +1,1 @@
+echo "" >> ./dist/index.d.ts && echo "export {}" >> ./dist/index.d.ts
