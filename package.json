@@ -11,8 +11,9 @@
     "test": "vitest run",
     "build": "tsup src/index.ts --format cjs,esm --legacy-output --dts",
     "lint": "tsc",
+    "cleanDist": "rm -rf dist",
     "postBuild": "sh postBuild.sh",
-    "ci": "pnpm run lint && pnpm run test && pnpm run build && pnpm run postBuild"
+    "ci": "pnpm run lint && pnpm run test && pnpm run cleanDist && pnpm run build && pnpm run postBuild"
   },
   "exports": {
     ".": {
