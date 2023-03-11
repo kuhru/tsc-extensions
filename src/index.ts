@@ -1,6 +1,7 @@
 import './extension/eArray';
 import './extension/eDate';
 import './extension/eObject';
+import './extension/eString';
 import './helper';
 
 declare global {
@@ -26,8 +27,13 @@ declare global {
 
   interface ReadonlyArray<T> extends Array<T> {}
 
+  interface String {
+    capitalize(...handleSeperator: string[]): string;
+  }
+
   // GENERAL USE
 
+  type Nullable<T> = T | undefined | null;
   type OmitThis<TType, Omitable extends TType> = TType extends Omitable ? never : TType;
   type LooseAutocomplete<S extends any, T extends S & PropertyKey> = T | Omit<S, T>;
 

@@ -25,6 +25,10 @@ declare global {
     }
     interface ReadonlyArray<T> extends Array<T> {
     }
+    interface String {
+        capitalize(...handleSeperator: string[]): string;
+    }
+    type Nullable<T> = T | undefined | null;
     type OmitThis<TType, Omitable extends TType> = TType extends Omitable ? never : TType;
     type LooseAutocomplete<S extends any, T extends S & PropertyKey> = T | Omit<S, T>;
     type MapOf<T extends PropertyKey, S extends any> = {

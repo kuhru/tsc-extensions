@@ -115,3 +115,22 @@ Object.defineProperties(Object.prototype, {
     writable: true
   }
 });
+
+// src/extension/eString.ts
+Object.defineProperties(String.prototype, {
+  capitalize: {
+    value: function(...handleSeperator) {
+      const uppercase = ([first, ...rest]) => {
+        return `${first.toLocaleUpperCase()}${rest.join("")}`;
+      };
+      let thisString = uppercase(this);
+      handleSeperator.forEach((rem) => {
+        thisString = thisString.split(rem).map((it) => !!it && uppercase(it)).join(rem);
+      });
+      return thisString;
+    },
+    configurable: true,
+    enumerable: false,
+    writable: true
+  }
+});
