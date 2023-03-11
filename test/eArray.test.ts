@@ -5,16 +5,13 @@ const data = {
   l1: {
     from: [1, 'a', 'a', [], 'ching', null, undefined, undefined, 32, { a: 1 }, {}],
     filterNotNull: [1, 'a', 'a', [], 'ching', 32, { a: 1 }, {}],
-    remDupes: [1, 'a', 'a', [], 'ching', null, undefined, undefined, 32, { a: 1 }, {}],
+    remDupes: [1, 'a', [], 'ching', null, undefined, 32, { a: 1 }, {}],
   },
 };
 
 describe('filterNotNull', () => {
-  it('null / undefined', () => {
-    assert.deepEqual(
-      data.l1.from.filterNotNull(),
-      data.l1.filterNotNull,
-      'filter the null and undefined items from the list'
-    );
+  it('filter the null and undefined items from the list', () => {
+    const here = data.l1;
+    assert.deepEqual(here.from.filterNotNull(), here.filterNotNull);
   });
 });
