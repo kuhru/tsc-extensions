@@ -9,6 +9,28 @@ Object.defineProperties(Array.prototype, {
     enumerable: false,
     writable: true,
   },
+  first: {
+    value: function <T, S extends T>(filterFn: Predicate<T, S> | null = null) {
+      let list = this as T[];
+      if (filterFn) list = list.filter(filterFn);
+      if (list.length === 0) throw Error("Empty array can't have a first element")
+      return list[0];
+    },
+    configurable: true,
+    enumerable: false,
+    writable: true,
+  },
+  last: {
+    value: function <T, S extends T>(filterFn: Predicate<T, S> | null = null) {
+      let list = this as T[];
+      if (filterFn) list = list.filter(filterFn);
+      if (list.length === 0) throw Error("Empty array can't have a last element")
+      return list[list.length - 1];
+    },
+    configurable: true,
+    enumerable: false,
+    writable: true,
+  },
   firstOrNull: {
     value: function <T, S extends T>(filterFn: Predicate<T, S> | null = null) {
       let list = this as T[];
