@@ -15,6 +15,14 @@ declare global {
     }
     interface Array<T> {
         filterNotNull(): NonNullable<T>[];
+        /**
+         * @throws Error("Empty Array")
+         */
+        first<S extends T>(filterFn?: Predicate<T, S> | null): T;
+        /**
+         * @throws Error("Empty Array")
+         */
+        last<S extends T>(filterFn?: Predicate<T, S> | null): T;
         firstOrNull<S extends T>(filterFn?: Predicate<T, S> | null): T | null;
         lastOrNull<S extends T>(filterFn?: Predicate<T, S> | null): T | null;
         max(sortFn?: Sorter<T> | null): T | null;
